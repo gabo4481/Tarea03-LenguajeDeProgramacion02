@@ -15,13 +15,14 @@ class Biblioteca():
         self.libros = []
         self.estudiantes = []
         
-    def agregar_libro(self,Libro):
-        self.libros.append(Libro)
-        print(f"Libro agregado con exito")
+    def agregar_libro(self,titulo,autor,isbn):
+        libro = Libro(titulo,autor,isbn)
+        self.libros.append(libro)
+        print(f"Libro {libro.titulo} agregado con exito")
         
     def agregar_estudiante(self,Estudiante):
         self.estudiantes.append(Estudiante)
-        print(f"Estudiante gregado con exito")
+        print(f"Estudiante {Estudiante.nombre} gregado con exito")
         
     def eliminar_libro(self,isbn):
         for libro in self.libros:
@@ -53,18 +54,18 @@ class Biblioteca():
             return
         print("No se ha encontrado estudiantes en la biblioteca")
         
+        
+
 # Ejemplo de uso
-libro1 = Libro("Cien Años de Soledad", "Gabriel García Márquez", "979")
-libro2 = Libro("El Quijote", "Miguel de Cervantes", "978")
+biblioteca = Biblioteca()
 
 estudiante1 = Estudiante("Gabriel Mendoza", "E001")
 estudiante2 = Estudiante("Ana Pérez", "E002")
 
-biblioteca = Biblioteca()
-
 # Agregar libros
-biblioteca.agregar_libro(libro1)
-biblioteca.agregar_libro(libro2)
+biblioteca.agregar_libro("Cien Años de Soledad", "Gabriel García Márquez", "979")
+biblioteca.agregar_libro("El Quijote", "Miguel de Cervantes", "978")
+
 
 # mostrar libros
 biblioteca.mostrar_libros()
